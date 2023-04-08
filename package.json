@@ -5,18 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch **/*.ts --exec \"ts-node\" index.ts"
+    "dev": "nodemon --watch **/*.ts --exec \"ts-node\" app.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.0",
     "@types/koa-bodyparser": "^4.3.10",
     "@types/koa-compose": "^3.2.5",
     "@types/koa-logger": "^3.1.2",
     "@types/koa-static": "^4.0.2",
     "@types/koa2-cors": "^2.0.2",
     "@types/mysql": "^2.15.21",
+    "jsonwebtoken": "^9.0.0",
     "koa": "^2.14.1",
     "koa-bodyparser": "^4.3.0",
     "koa-logger": "^3.2.1",
@@ -32,6 +34,7 @@
     "@types/koa-router": "^7.4.4",
     "@types/node": "^18.11.17",
     "husky": "^8.0.2",
+    "koa-jwt": "^4.0.3",
     "lint-staged": "^13.1.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20",
@@ -52,5 +55,5 @@
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-}
+  }
 }

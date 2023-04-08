@@ -5,11 +5,22 @@ import bodyparser from 'koa-bodyparser'; // post参数处理
 import logger from 'koa-logger'; // 输出日志
 import cors from 'koa2-cors'; // 跨域处理
 import koaStatic from 'koa-static'; // 静态资源处理
+import koajwt from 'koa-jwt'
 import router from './routers'
+import {token,errorCatch} from './middlewares'
+import {SECRET} from './config'
 const app = new Koa()
 
+
 // 使用中间件
-// koaOnerror(app) // 添加获取错误对象
+app.on("error", (err, ctx) => {
+  console.log(`\x1B[91m server error !!!!!!!!!!!!! \x1B[0m`, err, ctx);
+})
+// 异步任务错误捕获
+// app.use(errorCatch)
+
+app.use(token)// jwt token 获取错误
+
 app.use(logger())
 
 app.use(bodyparser())
@@ -25,9 +36,15 @@ app.use( async (ctx:Koa.BaseContext,next:() => Promise<any>)=>{
     console.log(`${ctx.method} ${ctx.URL} ->${ms}ms`);
 })
 
-app.on("error", (err, ctx) => {
-    console.log(`\x1B[91m server error !!!!!!!!!!!!! \x1B[0m`, err, ctx);
-  })
+// 登录验证白名单
+app.use(koajwt({ secret: SECRET }).unless({
+  path: [
+    // /\//,
+    /^\/user\/login/, // 登陆接口
+    /^\/user\/register/ // 注册
+  ]
+}))
+
 app.use(router.routes())
 app.use(router.allowedMethods())
 

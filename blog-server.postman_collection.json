@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "7d780beb-2d8a-439e-84a9-2a3ee95fd2bc",
+		"name": "blog-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21647170"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "注册",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test26\",\r\n    \"password\": \"123456\",\r\n    \"breif\": \"这个人很懒什么都没写\",\r\n    \"sex\": \"男\",\r\n    \"level\": 1,\r\n    \"regist_time\": \"2022-12-12\",\r\n    \"avatar\": \".... \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login?",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSelfArticles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/getSelfArticles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"getSelfArticles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sort",
+			"item": [
+				{
+					"name": "insertSort",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sort_name\": \"算法分析\",\r\n    \"sort_description\": \"记录学习日常\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sort/insertSort",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sort",
+								"insertSort"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateParentSid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sort/updateParentSid?sid=22",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sort",
+								"updateParentSid"
+							],
+							"query": [
+								{
+									"key": "sid",
+									"value": "22"
+								},
+								{
+									"key": "parent_sid",
+									"value": "23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSort",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sort/deleteSort?sid=23",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sort",
+								"deleteSort"
+							],
+							"query": [
+								{
+									"key": "sid",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "serchSorts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/sort/searchSorts?keyword=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sort",
+								"searchSorts"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"item": [
+				{
+					"name": "insertTag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"atag_name\": \"数据库\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tag/insertTag",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tag",
+								"insertTag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTagById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tag/getTagById?lid=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tag",
+								"getTagById"
+							],
+							"query": [
+								{
+									"key": "lid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTagByTagName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tag/getTagByTagName?tagName=数据库",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tag",
+								"getTagByTagName"
+							],
+							"query": [
+								{
+									"key": "tagName",
+									"value": "数据库"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/tag/deleteTag?lid=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tag",
+								"deleteTag"
+							],
+							"query": [
+								{
+									"key": "lid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "article",
+			"item": [
+				{
+					"name": "inserArticle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sid\":22,\r\n    \"title\": \"数据库备份\",\r\n    \"content\": \"备份类型\\n\\t按根据服务器状态\\n\\t热备份：读、写不受影响\\n\\t温备份：仅可以执行读操作\\n\\t冷备份：离线备份；读、写操作均中止\\n\\t按从结果对象\\n\\t物理备份：复制数据文件\\n\\t逻辑备份：将数据导出至文本文件中\\n\\t接下来，对应这些备份类型可以用哪些备份工具来操作呢\",\r\n    \"create_time\": \"2022-12-12\",\r\n    \"article_summary\": \"数据库是一个以某种有组织的方式存储的数据集合\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/article/insertArticle",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"article",
+								"insertArticle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getArticles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/article/getArticles?cloumn=publish_state&value=未发布",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"article",
+								"getArticles"
+							],
+							"query": [
+								{
+									"key": "cloumn",
+									"value": "publish_state"
+								},
+								{
+									"key": "value",
+									"value": "未发布"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publishArticle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/article/publishArticle?aid=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"article",
+								"publishArticle"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getArticleList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/article/getArticleList?cloumn=sid&value=22",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"article",
+								"getArticleList"
+							],
+							"query": [
+								{
+									"key": "cloumn",
+									"value": "sid"
+								},
+								{
+									"key": "value",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getArticleById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/article/getArticleById?aid=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"article",
+								"getArticleById"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "insertComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"aid\": 1,\r\n    \"uid\": 6,\r\n    \"comment_content\":\"加油\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/comment/insertComment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"insertComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentsByAid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/getCommentsByAid?aid=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"getCommentsByAid"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/comment/getCommentById?comid=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"comment",
+								"getCommentById"
+							],
+							"query": [
+								{
+									"key": "comid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "collection",
+			"item": [
+				{
+					"name": "insertCollection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/insertCollection?collectName=数据库",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"insertCollection"
+							],
+							"query": [
+								{
+									"key": "collectName",
+									"value": "数据库"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCollection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/getAllCollection",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"getAllCollection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCollection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/deleteCollection?cid=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"deleteCollection"
+							],
+							"query": [
+								{
+									"key": "cid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看收藏夹内文章",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/getCollectedArticles?cid=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"getCollectedArticles"
+							],
+							"query": [
+								{
+									"key": "cid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insertArticleToCollection收藏文章",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/insertArticleToCollection?aid=1&cid=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"insertArticleToCollection"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								},
+								{
+									"key": "cid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "取消收藏",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/collection/deleteCollectedArticle?aid=1&cid=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"collection",
+								"deleteCollectedArticle"
+							],
+							"query": [
+								{
+									"key": "aid",
+									"value": "1"
+								},
+								{
+									"key": "cid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "getUserInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjYsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2NzE5NTM1MjEsImV4cCI6MTY3MjAzOTkyMX0.U3-r3OZvkZq0gkBCP6P_6wcqSRrqptZhGbtRyIBtzCE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/user/getUserInfo",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"getUserInfo"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjYsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2NzIyMzIyODYsImV4cCI6MTY3MjMxODY4Nn0.0tqsG3MixPAukjc1YoM_7umXlyX3GM-TxFkDr6ExDJc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
